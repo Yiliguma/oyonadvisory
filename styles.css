@@ -114,14 +114,14 @@ p {
 
 .founder-profile {
   display: grid;
-  grid-template-columns: 110px 1fr;
-  gap: 18px;
+  grid-template-columns: 220px 1fr;
+  gap: 24px;
   align-items: start;
 }
 
 .founder-image {
   width: 100%;
-  max-width: 110px;
+  max-width: 220px;
   height: auto;
   border: 1px solid #d7d0bf;
   background: #f5efe0;
@@ -145,6 +145,6 @@ p {
   }
 
   .founder-image {
-    max-width: 120px;
+    max-width: 180px;
   }
 }
