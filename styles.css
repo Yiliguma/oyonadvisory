@@ -108,6 +108,24 @@ p {
   border-top: 1px solid #d7d0bf;
 }
 
+.founder-section {
+  margin-top: 48px;
+}
+
+.founder-profile {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.founder-image {
+  width: 100%;
+  height: auto;
+  border: 1px solid #d7d0bf;
+  background: #f5efe0;
+}
+
 @media (max-width: 700px) {
   body {
     font-size: 18px;
@@ -119,5 +137,13 @@ p {
 
   .hero-image {
     max-width: 280px;
+  }
+
+  .founder-profile {
+    grid-template-columns: 1fr;
+  }
+
+  .founder-image {
+    max-width: 220px;
   }
 }
