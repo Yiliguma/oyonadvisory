@@ -186,6 +186,21 @@ figcaption,
   font-weight: normal;
 }
 
+.references-section {
+  margin-top: 40px;
+  padding-top: 24px;
+  border-top: 1px solid #d7d0bf;
+}
+
+.references-list {
+  margin: 0;
+  padding-left: 22px;
+}
+
+.references-list li {
+  margin-bottom: 10px;
+}
+
 .founder-section {
   margin-top: 48px;
 }
