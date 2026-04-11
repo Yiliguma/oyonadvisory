@@ -149,6 +149,16 @@ p {
   font-size: 0.95rem;
 }
 
+.essay-share {
+  margin-top: 18px;
+  margin-bottom: 28px;
+  font-size: 0.95rem;
+}
+
+.essay-share a {
+  text-decoration-thickness: 1.5px;
+}
+
 figure {
   margin: 36px 0;
 }

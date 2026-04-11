@@ -73,6 +73,15 @@
         <p class="essay-byline">Content: Yili</p>
         <p class="essay-byline">Revision, table creation: ChatGPT</p>
         <p class="essay-byline">April 11, 2026</p>
+        <p class="essay-share">
+          <a
+            href="https://www.linkedin.com/sharing/share-offsite/?url=https://www.oyonadvisory.com/core-foundation-technologies-leading-edge-nodes.html"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Share on LinkedIn
+          </a>
+        </p>
 
         <p>
           Advanced chip manufacturing is one of the most complex manufacturing
@@ -164,6 +173,98 @@
           development to enable better pattern fidelity at extremely tight
           pitches.
         </p>
+
+        <p class="table-caption">
+          Table 1. Comparison of CAR, MOR, and dry resist approaches for
+          advanced lithography.
+        </p>
+        <div class="table-wrap">
+          <table class="essay-table">
+            <thead>
+              <tr>
+                <th>Dimension</th>
+                <th>CAR (Chemically Amplified Resist)</th>
+                <th>MOR (Metal-Oxide Resist)</th>
+                <th>Dry Resist</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Basic concept</td>
+                <td>
+                  Organic resist platform where a small amount of
+                  photogenerated acid catalyzes a larger chemical change during
+                  post-exposure bake. It has been the mainstream resist
+                  architecture through DUV and into EUV.
+                </td>
+                <td>
+                  Metal-containing or metal-oxide-based resist chemistry, often
+                  built around metal-oxo clusters or related structures,
+                  designed to improve EUV absorption, etch resistance, and
+                  fine-pitch performance.
+                </td>
+                <td>
+                  Resist deposited and processed in a mostly dry flow rather
+                  than the classic spin-coat and wet-develop flow. Lam's
+                  Aether is the highest-profile current example.
+                </td>
+              </tr>
+              <tr>
+                <td>Current maturity</td>
+                <td>
+                  Most mature and incumbent. CAR remains the reference platform
+                  the industry knows how to manufacture, tune, and qualify at
+                  scale.
+                </td>
+                <td>
+                  Emerging production technology. MOR is no longer just a lab
+                  idea and is being positioned for current single-patterning
+                  EUV HVM and future High-NA.
+                </td>
+                <td>
+                  Earlier than CAR, but moving into serious industrial
+                  validation. Aether is already in advanced DRAM production and
+                  is being pushed toward sub-1 nm High-NA logic flows.
+                </td>
+              </tr>
+              <tr>
+                <td>Main strengths</td>
+                <td>
+                  Deep ecosystem maturity, existing fab know-how, broad
+                  compatibility, and proven manufacturability.
+                </td>
+                <td>
+                  High EUV absorbance, strong etch selectivity, local
+                  uniformity, and track compatibility.
+                </td>
+                <td>
+                  Better pattern fidelity and fewer process steps, with the
+                  potential to maintain scaling without adding costly
+                  complexity.
+                </td>
+              </tr>
+              <tr>
+                <td>Main weaknesses and risks</td>
+                <td>
+                  The classic EUV tradeoff among resolution, line-edge and
+                  line-width roughness, and sensitivity remains a challenge,
+                  along with stochastic defects at very small dimensions.
+                </td>
+                <td>
+                  Still working through full manufacturability questions,
+                  including sensitivity, roughness, defectivity, and broader
+                  pattern flexibility.
+                </td>
+                <td>
+                  Less established ecosystem, more dependence on integrated
+                  tool and process adoption, and tighter coupling to
+                  deposition/etch hardware workflows rather than a simple
+                  material swap.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
         <p>
           Beyond interconnect- and lithography-focused development, there are
           also efforts to replace silicon channels with 2D materials in future
@@ -176,10 +277,26 @@
         <section class="references-section">
           <h3>References</h3>
           <ul class="references-list">
-            <li>2D-Material Based Devices in the Logic Scaling Roadmap | imec</li>
-            <li>Addressing Interconnect Challenges for Enhanced Computing Performance | Science</li>
-            <li>Thermal Management of 3-D Heterogeneously Integrated Microelectronics: Challenges and Future Research Directions | Communications Engineering</li>
-            <li>Backside Power Delivery Gears Up for 2nm Devices</li>
+            <li>
+              <a href="https://www.imec-int.com/en/articles/introducing-2d-material-based-devices-logic-scaling-roadmap" target="_blank" rel="noopener noreferrer">
+                2D-Material Based Devices in the Logic Scaling Roadmap | imec
+              </a>
+            </li>
+            <li>
+              <a href="https://doi.org/10.1126/science.adk6189" target="_blank" rel="noopener noreferrer">
+                Addressing Interconnect Challenges for Enhanced Computing Performance | Science
+              </a>
+            </li>
+            <li>
+              <a href="https://www.nature.com/articles/s44172-026-00590-y" target="_blank" rel="noopener noreferrer">
+                Thermal Management of 3-D Heterogeneously Integrated Microelectronics: Challenges and Future Research Directions | Communications Engineering
+              </a>
+            </li>
+            <li>
+              <a href="https://semiengineering.com/backside-power-delivery-gears-up-for-2nm-devices/" target="_blank" rel="noopener noreferrer">
+                Backside Power Delivery Gears Up for 2nm Devices
+              </a>
+            </li>
           </ul>
         </section>
       </article>
