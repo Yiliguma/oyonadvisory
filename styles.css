@@ -2,9 +2,9 @@ body {
   margin: 0;
   background: #ffffff;
   color: #111111;
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 20px;
-  line-height: 1.7;
+  line-height: 1.45;
 }
 
 a {
@@ -17,21 +17,24 @@ a:hover {
 }
 
 .page {
-  max-width: 860px;
+  max-width: 920px;
   margin: 0 auto;
-  padding: 24px 16px 72px;
+  padding: 28px 18px 80px;
 }
 
 .site-header {
-  margin-bottom: 48px;
-  padding-bottom: 12px;
+  margin-bottom: 52px;
+  padding-bottom: 16px;
   border-bottom: 1px solid #dfdfdf;
 }
 
 .site-header h1 {
-  margin: 0 0 12px;
-  font-size: 1.85rem;
+  margin: 0 0 14px;
+  color: #8a473d;
+  font-size: 1.45rem;
   font-weight: normal;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
 }
 
 .site-header h1 a {
@@ -41,8 +44,9 @@ a:hover {
 
 nav {
   display: flex;
-  gap: 18px;
+  gap: 20px;
   flex-wrap: wrap;
+  font-size: 0.98rem;
 }
 
 nav a[aria-current="page"] {
@@ -61,8 +65,8 @@ h3 {
 }
 
 h2 {
-  margin: 0 0 20px;
-  font-size: 1.7rem;
+  margin: 0 0 16px;
+  font-size: 1.55rem;
 }
 
 h3 {
@@ -76,30 +80,90 @@ p {
 
 .hero {
   display: grid;
-  grid-template-columns: 220px 1fr;
-  gap: 28px;
+  grid-template-columns: minmax(240px, 320px) minmax(0, 1fr);
+  gap: 34px;
   align-items: start;
-  margin-bottom: 48px;
+  margin-bottom: 42px;
 }
 
 .hero-image {
   width: 100%;
   height: auto;
-  border: 1px solid #d7d0bf;
-  background: #f5efe0;
+  display: block;
+  border: 1px solid #ddd6cc;
+  background: #f7f3ed;
 }
 
 .eyebrow {
-  margin-bottom: 14px;
+  margin-bottom: 12px;
   color: #7a5d32;
   font-size: 0.95rem;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
+}
+
+.lead {
+  max-width: 44rem;
+  font-size: 1.12rem;
+  line-height: 1.5;
+}
+
+.info-page h2,
+.contact-page h2 {
+  color: #8a473d;
+  font-size: 1.05rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.home-page,
+.info-page,
+.contact-page {
+  max-width: 860px;
+}
+
+.hero-copy h2 {
+  max-width: 34rem;
+  color: #111111;
+  font-size: 2rem;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  text-transform: none;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin: 28px 0 32px;
+}
+
+.info-card {
+  min-height: 100%;
+  padding: 20px 18px 18px;
+  border: 1px solid #dfdfdf;
+  background: #fbfaf7;
+}
+
+.info-card h3 {
+  margin-bottom: 10px;
+  color: #8a473d;
+  font-size: 1rem;
+  letter-spacing: 0.03em;
+}
+
+.editorial-note {
+  max-width: 44rem;
+  padding-top: 24px;
+  border-top: 1px solid #dfdfdf;
+}
+
+.editorial-note p {
+  margin-bottom: 0;
 }
 
 .essays-intro {
   max-width: 42rem;
-  font-family: Arial, Helvetica, sans-serif;
   font-size: 1rem;
   line-height: 1.45;
   color: #111111;
@@ -108,7 +172,6 @@ p {
 .essay-meta {
   margin-bottom: 8px;
   color: #5d5d5d;
-  font-family: Arial, Helvetica, sans-serif;
   font-size: 0.95rem;
 }
 
@@ -129,7 +192,6 @@ p {
 
 .essay-archive-item {
   margin-bottom: 22px;
-  font-family: Arial, Helvetica, sans-serif;
 }
 
 .essay-archive-item::marker {
@@ -142,7 +204,6 @@ p {
 
 .essay-archive-title {
   margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
   font-size: 1rem;
   line-height: 1.35;
 }
@@ -153,15 +214,21 @@ p {
 
 .essay-page {
   max-width: 760px;
-  font-family: Arial, Helvetica, sans-serif;
   font-size: 1.15rem;
-  line-height: 1.32;
+  line-height: 1.38;
 }
 
 .essay-back {
   margin-bottom: 18px;
   font-size: 0.95rem;
-  font-family: Arial, Helvetica, sans-serif;
+}
+
+.essay-page h2 {
+  margin-bottom: 8px;
+}
+
+.essay-page .essay-meta {
+  margin-bottom: 22px;
 }
 
 .essay-intro {
@@ -172,14 +239,12 @@ p {
   margin-bottom: 6px;
   color: #5d5d5d;
   font-size: 0.95rem;
-  font-family: Arial, Helvetica, sans-serif;
 }
 
 .essay-share {
   margin-top: 22px;
   margin-bottom: 34px;
   font-size: 0.95rem;
-  font-family: Arial, Helvetica, sans-serif;
 }
 
 .essay-share a {
@@ -205,7 +270,6 @@ p {
 .essay-page h3 {
   margin-top: 34px;
   margin-bottom: 12px;
-  font-family: Arial, Helvetica, sans-serif;
   font-size: 1.08rem;
   line-height: 1.35;
 }
@@ -227,7 +291,6 @@ figcaption,
   margin-top: 10px;
   color: #5d5d5d;
   font-size: 0.95rem;
-  font-family: Arial, Helvetica, sans-serif;
 }
 
 .table-wrap {
@@ -238,7 +301,6 @@ figcaption,
 .essay-table {
   width: 100%;
   border-collapse: collapse;
-  font-family: Arial, Helvetica, sans-serif;
   font-size: 0.95rem;
 }
 
@@ -264,7 +326,6 @@ figcaption,
 .references-list {
   margin: 0;
   padding-left: 22px;
-  font-family: Arial, Helvetica, sans-serif;
 }
 
 .references-list li {
@@ -278,7 +339,7 @@ figcaption,
 .founder-profile {
   display: grid;
   grid-template-columns: minmax(220px, 3fr) minmax(280px, 4fr);
-  gap: 28px;
+  gap: 32px;
   align-items: start;
 }
 
@@ -291,14 +352,24 @@ figcaption,
 }
 
 .contact-card {
-  padding: 24px;
-  border: 1px solid #d7d0bf;
-  background: #fbf7ee;
+  max-width: 42rem;
+  padding: 26px 24px;
+  border: 1px solid #dfdfdf;
+  background: #fbfaf7;
+}
+
+.contact-list {
+  margin: 18px 0;
+  padding-left: 22px;
+}
+
+.contact-list li {
+  margin-bottom: 8px;
 }
 
 .contact-note {
   margin-top: 16px;
-  color: #5d523b;
+  color: #5d5d5d;
   font-size: 0.95rem;
 }
 
@@ -313,10 +384,19 @@ figcaption,
 
   .hero {
     grid-template-columns: 1fr;
+    gap: 20px;
   }
 
   .hero-image {
     max-width: 280px;
+  }
+
+  .hero-copy h2 {
+    font-size: 1.6rem;
+  }
+
+  .info-grid {
+    grid-template-columns: 1fr;
   }
 
   .founder-profile {
@@ -329,6 +409,11 @@ figcaption,
 
   .essay-page {
     font-size: 1.05rem;
+  }
+
+  .contact-card,
+  .info-card {
+    padding: 18px 16px;
   }
 
 }
