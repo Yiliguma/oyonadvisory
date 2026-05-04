@@ -159,6 +159,15 @@ p {
   text-decoration-thickness: 1.5px;
 }
 
+.essay-page ul {
+  margin: 0 0 20px;
+  padding-left: 22px;
+}
+
+.essay-page li {
+  margin-bottom: 8px;
+}
+
 figure {
   margin: 36px 0;
 }
