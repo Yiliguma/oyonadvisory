@@ -2,9 +2,9 @@ body {
   margin: 0;
   background: #f5f0e3;
   color: #1e1d1a;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 21px;
-  line-height: 1.58;
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 12px;
+  line-height: 1.5;
 }
 
 a {
@@ -44,7 +44,7 @@ nav {
   display: flex;
   gap: 14px;
   flex-wrap: wrap;
-  font-size: 0.95rem;
+  font-size: 1rem;
 }
 
 nav a[aria-current="page"] {
@@ -72,7 +72,7 @@ h2 {
 
 h3 {
   margin: 0 0 8px;
-  font-size: 1.04rem;
+  font-size: 1rem;
 }
 
 p {
@@ -113,14 +113,14 @@ p {
 figcaption,
 .table-caption {
   color: #5e5b55;
-  font-size: 0.95rem;
+  font-size: 1rem;
 }
 
 .hero-copy h2,
 .essay-page h2 {
   margin-bottom: 10px;
   color: #8f4e41;
-  font-size: 1.65rem;
+  font-size: 2.2em;
   letter-spacing: 0;
   text-transform: none;
 }
@@ -235,7 +235,7 @@ figure {
 .essay-table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 0.95rem;
+  font-size: 1rem;
 }
 
 .essay-table th,
@@ -265,7 +265,7 @@ figure {
 
 @media (max-width: 700px) {
   body {
-    font-size: 19px;
+    font-size: 12px;
   }
 
   .page {
@@ -281,6 +281,6 @@ figure {
 
   .hero-copy h2,
   .essay-page h2 {
-    font-size: 1.4rem;
+    font-size: 1.8em;
   }
 }
