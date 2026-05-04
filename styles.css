@@ -3,7 +3,7 @@ body {
   background: #f5f0e3;
   color: #1e1d1a;
   font-family: Verdana, Geneva, sans-serif;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.55;
 }
 
@@ -29,7 +29,7 @@ a:hover {
 .site-header h1 {
   margin: 0 0 10px;
   color: #8f4e41;
-  font-size: 0.92rem;
+  font-size: 0.88rem;
   font-weight: normal;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -44,7 +44,7 @@ nav {
   display: flex;
   gap: 14px;
   flex-wrap: wrap;
-  font-size: 0.98rem;
+  font-size: 1rem;
 }
 
 nav a[aria-current="page"] {
@@ -65,14 +65,14 @@ h3 {
 h2 {
   margin: 0 0 16px;
   color: #8f4e41;
-  font-size: 0.96rem;
+  font-size: 0.92rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
 h3 {
   margin: 0 0 8px;
-  font-size: 0.9rem;
+  font-size: 1rem;
 }
 
 p {
@@ -120,7 +120,7 @@ figcaption,
 .essay-page h2 {
   margin-bottom: 10px;
   color: #8f4e41;
-  font-size: 2em;
+  font-size: 2.05em;
   letter-spacing: 0;
   text-transform: none;
   line-height: 1.18;
@@ -154,7 +154,7 @@ figcaption,
 .info-card h3,
 .contact-card h3 {
   color: #8f4e41;
-  font-size: 0.9rem;
+  font-size: 1rem;
 }
 
 .essays-intro {
@@ -181,7 +181,7 @@ figcaption,
 
 .essay-archive-title {
   margin: 0;
-  font-size: 0.98rem;
+  font-size: 1rem;
 }
 
 .essay-page {
@@ -216,7 +216,7 @@ figcaption,
 
 .essay-page h3 {
   margin-top: 30px;
-  font-size: 0.95rem;
+  font-size: 1rem;
 }
 
 figure {
@@ -267,7 +267,7 @@ figure {
 
 @media (max-width: 700px) {
   body {
-    font-size: 12px;
+    font-size: 14px;
   }
 
   .page {
@@ -283,6 +283,6 @@ figure {
 
   .hero-copy h2,
   .essay-page h2 {
-    font-size: 1.65em;
+    font-size: 1.75em;
   }
 }
