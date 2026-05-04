@@ -1,39 +1,37 @@
 body {
   margin: 0;
-  background: #ffffff;
-  color: #111111;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 20px;
-  line-height: 1.45;
+  background: #f5f0e3;
+  color: #1e1d1a;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 21px;
+  line-height: 1.58;
 }
 
 a {
-  color: #123a66;
+  color: #173f8a;
   text-decoration: underline;
 }
 
 a:hover {
-  color: #0d2a49;
+  color: #0f2f66;
 }
 
 .page {
-  max-width: 920px;
+  max-width: 760px;
   margin: 0 auto;
-  padding: 28px 18px 80px;
+  padding: 22px 16px 72px;
 }
 
 .site-header {
-  margin-bottom: 52px;
-  padding-bottom: 16px;
-  border-bottom: 1px solid #dfdfdf;
+  margin-bottom: 34px;
 }
 
 .site-header h1 {
-  margin: 0 0 14px;
-  color: #8a473d;
-  font-size: 1.45rem;
+  margin: 0 0 10px;
+  color: #8f4e41;
+  font-size: 0.95rem;
   font-weight: normal;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
@@ -44,14 +42,14 @@ a:hover {
 
 nav {
   display: flex;
-  gap: 20px;
+  gap: 14px;
   flex-wrap: wrap;
-  font-size: 0.98rem;
+  font-size: 0.95rem;
 }
 
 nav a[aria-current="page"] {
+  color: #1e1d1a;
   text-decoration: none;
-  color: #111111;
 }
 
 .content-block {
@@ -61,241 +59,177 @@ nav a[aria-current="page"] {
 h2,
 h3 {
   font-weight: normal;
-  line-height: 1.3;
+  line-height: 1.25;
 }
 
 h2 {
   margin: 0 0 16px;
-  font-size: 1.55rem;
+  color: #8f4e41;
+  font-size: 1rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 h3 {
   margin: 0 0 8px;
-  font-size: 1.2rem;
+  font-size: 1.04rem;
 }
 
 p {
   margin: 0 0 20px;
 }
 
-.hero {
-  display: grid;
-  grid-template-columns: minmax(240px, 320px) minmax(0, 1fr);
-  gap: 34px;
-  align-items: start;
-  margin-bottom: 42px;
-}
-
-.hero-image {
-  width: 100%;
-  height: auto;
-  display: block;
-  border: 1px solid #ddd6cc;
-  background: #f7f3ed;
-}
-
-.eyebrow {
-  margin-bottom: 12px;
-  color: #7a5d32;
-  font-size: 0.95rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-}
-
 .lead {
-  max-width: 44rem;
-  font-size: 1.12rem;
-  line-height: 1.5;
+  font-size: 1em;
 }
 
-.info-page h2,
-.contact-page h2 {
-  color: #8a473d;
-  font-size: 1.05rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+.hero,
+.founder-profile {
+  display: block;
 }
 
-.home-page,
-.info-page,
-.contact-page {
-  max-width: 860px;
+.hero::after,
+.founder-profile::after {
+  content: "";
+  display: block;
+  clear: both;
 }
 
-.hero-copy h2 {
-  max-width: 34rem;
-  color: #111111;
-  font-size: 2rem;
-  line-height: 1.15;
-  letter-spacing: -0.02em;
+.hero-image,
+.founder-image {
+  float: right;
+  width: min(40%, 250px);
+  height: auto;
+  margin: 2px 0 18px 24px;
+  display: block;
+}
+
+.eyebrow,
+.essay-meta,
+.essay-byline,
+.essay-back,
+.essay-share,
+.contact-note,
+figcaption,
+.table-caption {
+  color: #5e5b55;
+  font-size: 0.95rem;
+}
+
+.hero-copy h2,
+.essay-page h2 {
+  margin-bottom: 10px;
+  color: #8f4e41;
+  font-size: 1.65rem;
+  letter-spacing: 0;
   text-transform: none;
 }
 
+.hero-copy h2 {
+  max-width: 30rem;
+}
+
+.essay-page h2 {
+  max-width: 34rem;
+}
+
+.editorial-note,
+.info-card,
+.contact-card {
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
 .info-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 18px;
-  margin: 28px 0 32px;
+  display: block;
+  margin: 28px 0 0;
 }
 
 .info-card {
-  min-height: 100%;
-  padding: 20px 18px 18px;
-  border: 1px solid #dfdfdf;
-  background: #fbfaf7;
+  margin-bottom: 26px;
 }
 
-.info-card h3 {
-  margin-bottom: 10px;
-  color: #8a473d;
+.info-card h3,
+.contact-card h3 {
+  color: #8f4e41;
   font-size: 1rem;
-  letter-spacing: 0.03em;
-}
-
-.editorial-note {
-  max-width: 44rem;
-  padding-top: 24px;
-  border-top: 1px solid #dfdfdf;
-}
-
-.editorial-note p {
-  margin-bottom: 0;
 }
 
 .essays-intro {
-  max-width: 42rem;
-  font-size: 1rem;
-  line-height: 1.45;
-  color: #111111;
-}
-
-.essay-meta {
-  margin-bottom: 8px;
-  color: #5d5d5d;
-  font-size: 0.95rem;
-}
-
-.essay-index h2,
-.essay-page h2 {
-  color: #8a473d;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 1.05rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  max-width: 38rem;
 }
 
 .essay-archive {
-  margin: 32px 0 0;
-  padding: 0 0 0 26px;
+  margin: 28px 0 0;
+  padding-left: 24px;
   list-style-type: square;
 }
 
 .essay-archive-item {
-  margin-bottom: 22px;
+  margin-bottom: 18px;
 }
 
 .essay-archive-item::marker {
-  color: #7b7b7b;
+  color: #7a766f;
 }
 
 .essay-archive-item .essay-meta {
-  margin-bottom: 4px;
+  margin-bottom: 3px;
 }
 
 .essay-archive-title {
   margin: 0;
-  font-size: 1rem;
-  line-height: 1.35;
-}
-
-.essay-archive-title a {
-  color: #123a66;
+  font-size: 1em;
 }
 
 .essay-page {
-  max-width: 760px;
-  font-size: 1.15rem;
-  line-height: 1.38;
-}
-
-.essay-back {
-  margin-bottom: 18px;
-  font-size: 0.95rem;
-}
-
-.essay-page h2 {
-  margin-bottom: 8px;
+  max-width: 100%;
 }
 
 .essay-page .essay-meta {
-  margin-bottom: 22px;
+  margin-bottom: 20px;
 }
 
 .essay-intro {
-  font-size: 1.15rem;
-}
-
-.essay-byline {
-  margin-bottom: 6px;
-  color: #5d5d5d;
-  font-size: 0.95rem;
+  font-size: 1em;
 }
 
 .essay-share {
-  margin-top: 22px;
-  margin-bottom: 34px;
-  font-size: 0.95rem;
+  margin-top: 18px;
+  margin-bottom: 28px;
 }
 
-.essay-share a {
-  text-decoration-thickness: 1.5px;
+.essay-page ul,
+.contact-list,
+.references-list {
+  margin: 0 0 20px;
+  padding-left: 24px;
 }
 
-.essay-page ul {
-  margin: 0 0 20px 8px;
-  padding-left: 22px;
-}
-
-.essay-page li {
+.essay-page li,
+.contact-list li,
+.references-list li {
   margin-bottom: 8px;
 }
 
-.essay-page p,
-.essay-page ul,
-.essay-page ol,
-.essay-page blockquote {
-  max-width: 42rem;
-}
-
 .essay-page h3 {
-  margin-top: 34px;
-  margin-bottom: 12px;
-  font-size: 1.08rem;
-  line-height: 1.35;
+  margin-top: 30px;
 }
 
 figure {
-  margin: 36px 0;
+  margin: 34px 0;
 }
 
 .essay-figure {
-  width: 100%;
+  max-width: 100%;
   height: auto;
   display: block;
-  border: 1px solid #d7d0bf;
-  background: #f5efe0;
-}
-
-figcaption,
-.table-caption {
-  margin-top: 10px;
-  color: #5d5d5d;
-  font-size: 0.95rem;
 }
 
 .table-wrap {
   overflow-x: auto;
-  margin: 36px 0 12px;
+  margin: 34px 0 12px;
 }
 
 .essay-table {
@@ -307,113 +241,46 @@ figcaption,
 .essay-table th,
 .essay-table td {
   padding: 10px 12px;
-  border: 1px solid #d7d0bf;
+  border: 1px solid #cfc7b8;
   text-align: left;
   vertical-align: top;
 }
 
 .essay-table th {
-  background: #fbf7ee;
+  background: #efe7d5;
   font-weight: normal;
 }
 
 .references-section {
-  margin-top: 40px;
-  padding-top: 24px;
-  border-top: 1px solid #dfdfdf;
-}
-
-.references-list {
-  margin: 0;
-  padding-left: 22px;
-}
-
-.references-list li {
-  margin-bottom: 10px;
+  margin-top: 36px;
 }
 
 .founder-section {
-  margin-top: 48px;
-}
-
-.founder-profile {
-  display: grid;
-  grid-template-columns: minmax(220px, 3fr) minmax(280px, 4fr);
-  gap: 32px;
-  align-items: start;
-}
-
-.founder-image {
-  width: 100%;
-  height: auto;
-  display: block;
-  border: 1px solid #d7d0bf;
-  background: #f5efe0;
+  margin-top: 36px;
 }
 
 .contact-card {
-  max-width: 42rem;
-  padding: 26px 24px;
-  border: 1px solid #dfdfdf;
-  background: #fbfaf7;
-}
-
-.contact-list {
-  margin: 18px 0;
-  padding-left: 22px;
-}
-
-.contact-list li {
-  margin-bottom: 8px;
-}
-
-.contact-note {
-  margin-top: 16px;
-  color: #5d5d5d;
-  font-size: 0.95rem;
+  max-width: 38rem;
 }
 
 @media (max-width: 700px) {
   body {
-    font-size: 18px;
+    font-size: 19px;
   }
 
   .page {
-    padding: 20px 14px 56px;
+    padding: 18px 14px 54px;
   }
 
-  .hero {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-
-  .hero-image {
-    max-width: 280px;
-  }
-
-  .hero-copy h2 {
-    font-size: 1.6rem;
-  }
-
-  .info-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .founder-profile {
-    grid-template-columns: 1fr;
-  }
-
+  .hero-image,
   .founder-image {
-    max-width: 220px;
+    float: none;
+    width: min(100%, 280px);
+    margin: 0 0 18px;
   }
 
-  .essay-page {
-    font-size: 1.05rem;
+  .hero-copy h2,
+  .essay-page h2 {
+    font-size: 1.4rem;
   }
-
-  .contact-card,
-  .info-card {
-    padding: 18px 16px;
-  }
-
 }
