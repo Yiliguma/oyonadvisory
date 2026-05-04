@@ -1,7 +1,7 @@
 body {
   margin: 0;
-  background: #fffdf7;
-  color: #1d1d1b;
+  background: #ffffff;
+  color: #111111;
   font-family: Georgia, "Times New Roman", serif;
   font-size: 20px;
   line-height: 1.7;
@@ -17,20 +17,20 @@ a:hover {
 }
 
 .page {
-  max-width: 760px;
+  max-width: 860px;
   margin: 0 auto;
-  padding: 24px 20px 64px;
+  padding: 24px 16px 72px;
 }
 
 .site-header {
-  margin-bottom: 56px;
-  padding-bottom: 14px;
-  border-bottom: 1px solid #d7d0bf;
+  margin-bottom: 48px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #dfdfdf;
 }
 
 .site-header h1 {
   margin: 0 0 12px;
-  font-size: 2rem;
+  font-size: 1.85rem;
   font-weight: normal;
 }
 
@@ -47,7 +47,7 @@ nav {
 
 nav a[aria-current="page"] {
   text-decoration: none;
-  color: #1d1d1b;
+  color: #111111;
 }
 
 .content-block {
@@ -97,62 +97,89 @@ p {
   letter-spacing: 0.06em;
 }
 
-.essay-list {
-  display: grid;
-  gap: 24px;
-  margin-top: 28px;
-}
-
-.essay-item {
-  padding-top: 18px;
-  border-top: 1px solid #d7d0bf;
-}
-
 .essays-intro {
-  font-size: 0.95rem;
-  font-style: italic;
-  color: #5d523b;
+  max-width: 42rem;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  line-height: 1.45;
+  color: #111111;
 }
 
 .essay-meta {
-  margin-bottom: 10px;
-  color: #7a5d32;
+  margin-bottom: 8px;
+  color: #5d5d5d;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 0.95rem;
+}
+
+.essay-index h2,
+.essay-page h2 {
+  color: #8a473d;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.05rem;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
 }
 
-.essay-item h3 {
-  margin-bottom: 10px;
+.essay-archive {
+  margin: 32px 0 0;
+  padding: 0 0 0 26px;
+  list-style-type: square;
 }
 
-.essay-item p:last-child {
-  margin-bottom: 0;
+.essay-archive-item {
+  margin-bottom: 22px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.essay-archive-item::marker {
+  color: #7b7b7b;
+}
+
+.essay-archive-item .essay-meta {
+  margin-bottom: 4px;
+}
+
+.essay-archive-title {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  line-height: 1.35;
+}
+
+.essay-archive-title a {
+  color: #123a66;
 }
 
 .essay-page {
-  max-width: 680px;
+  max-width: 760px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.15rem;
+  line-height: 1.32;
 }
 
 .essay-back {
   margin-bottom: 18px;
   font-size: 0.95rem;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .essay-intro {
-  font-size: 1.08rem;
+  font-size: 1.15rem;
 }
 
 .essay-byline {
-  margin-bottom: 8px;
-  color: #5d523b;
+  margin-bottom: 6px;
+  color: #5d5d5d;
   font-size: 0.95rem;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .essay-share {
-  margin-top: 18px;
-  margin-bottom: 28px;
+  margin-top: 22px;
+  margin-bottom: 34px;
   font-size: 0.95rem;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .essay-share a {
@@ -160,12 +187,27 @@ p {
 }
 
 .essay-page ul {
-  margin: 0 0 20px;
+  margin: 0 0 20px 8px;
   padding-left: 22px;
 }
 
 .essay-page li {
   margin-bottom: 8px;
+}
+
+.essay-page p,
+.essay-page ul,
+.essay-page ol,
+.essay-page blockquote {
+  max-width: 42rem;
+}
+
+.essay-page h3 {
+  margin-top: 34px;
+  margin-bottom: 12px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.08rem;
+  line-height: 1.35;
 }
 
 figure {
@@ -183,8 +225,9 @@ figure {
 figcaption,
 .table-caption {
   margin-top: 10px;
-  color: #5d523b;
+  color: #5d5d5d;
   font-size: 0.95rem;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .table-wrap {
@@ -195,6 +238,7 @@ figcaption,
 .essay-table {
   width: 100%;
   border-collapse: collapse;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 0.95rem;
 }
 
@@ -214,12 +258,13 @@ figcaption,
 .references-section {
   margin-top: 40px;
   padding-top: 24px;
-  border-top: 1px solid #d7d0bf;
+  border-top: 1px solid #dfdfdf;
 }
 
 .references-list {
   margin: 0;
   padding-left: 22px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .references-list li {
@@ -262,6 +307,10 @@ figcaption,
     font-size: 18px;
   }
 
+  .page {
+    padding: 20px 14px 56px;
+  }
+
   .hero {
     grid-template-columns: 1fr;
   }
@@ -276,6 +325,10 @@ figcaption,
 
   .founder-image {
     max-width: 220px;
+  }
+
+  .essay-page {
+    font-size: 1.05rem;
   }
 
 }
