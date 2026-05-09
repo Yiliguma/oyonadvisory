@@ -224,9 +224,10 @@ figure {
 }
 
 .essay-figure {
-  max-width: 100%;
+  max-width: 78%;
   height: auto;
   display: block;
+  margin: 0 auto;
 }
 
 .table-wrap {
