@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DeepTech DD Copilot Scorecard | Oyon Advisory Demo</title>
+  <title>DeepTech DD Copilot | Oyon Advisory</title>
   <style>
     :root {
       --bg: #f7f5f0;
@@ -55,6 +55,29 @@
       font-weight: 750;
       letter-spacing: 0.04em;
       color: var(--accent-dark);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      flex: 1;
+      font-size: 14px;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-weight: 650;
+      transition: color 0.18s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--accent-dark);
     }
 
     .demo-badge {
@@ -64,6 +87,19 @@
       border-radius: 999px;
       color: var(--muted);
       background: #fff;
+      white-space: nowrap;
+    }
+
+    @media (max-width: 760px) {
+      .nav {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .nav-links {
+        justify-content: flex-start;
+        flex-wrap: wrap;
+      }
     }
 
     main {
@@ -358,6 +394,19 @@
       font-size: 13px;
     }
 
+    .demo-note {
+      margin: 18px 0 0;
+      padding: 14px 16px;
+      border: 1px solid var(--line);
+      border-left: 4px solid var(--accent);
+      border-radius: 14px;
+      background: #fffaf2;
+      color: var(--accent-dark);
+      font-size: 14px;
+      font-weight: 650;
+      max-width: 780px;
+    }
+
     @media (max-width: 960px) {
       .hero, .app-shell, .score-hero, .grid-2 { grid-template-columns: 1fr; }
       .form-panel { position: static; }
@@ -368,8 +417,15 @@
 <body>
   <header>
     <div class="nav">
-      <div class="brand">OYON ADVISORY</div>
-      <div class="demo-badge">DeepTech DD Copilot · Scorecard Demo</div>
+      <a class="brand" href="index.html">OYON ADVISORY</a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="essays.html">Essays</a>
+        <a class="active" href="deeptech-dd-copilot.html">DeepTech DD Copilot</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="demo-badge">Scorecard Demo</div>
     </div>
   </header>
 
@@ -380,6 +436,10 @@
         <h1>Oyon DeepTech Readiness Scorecard</h1>
         <p>Upload or paste a startup description and generate a stage-adjusted technical investment readiness view. This demo emphasizes the proprietary scoring logic, not generic memo writing.</p>
         <p>The scorecard combines universal deep-tech criteria, sector-specific diligence questions, confidence scoring, and missing-evidence detection.</p>
+        <p class="demo-note">
+          Demo version: this page shows a simulated Oyon DeepTech Readiness Scorecard.
+          It does not process confidential materials or connect to a live AI model yet.
+        </p>
       </div>
       <aside class="hero-card">
         <h3>Scorecard differentiators</h3>
