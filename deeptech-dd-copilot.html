@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DeepTech DD Copilot Scorecard | Oyon Advisory Demo</title>
+  <style>
+    :root {
+      --bg: #f7f5f0;
+      --panel: #ffffff;
+      --text: #1f2933;
+      --muted: #697386;
+      --line: #e6e1d8;
+      --accent: #8b5e34;
+      --accent-dark: #5f3d21;
+      --soft: #f1ebe2;
+      --soft-2: #faf7f1;
+      --danger: #9f2d2d;
+      --warn: #9a6b00;
+      --good: #23704a;
+      --blue: #2f5f8f;
+      --shadow: 0 12px 35px rgba(31, 41, 51, 0.08);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    header {
+      border-bottom: 1px solid var(--line);
+      background: rgba(247, 245, 240, 0.92);
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(10px);
+      z-index: 10;
+    }
+
+    .nav {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 18px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      font-weight: 750;
+      letter-spacing: 0.04em;
+      color: var(--accent-dark);
+    }
+
+    .demo-badge {
+      font-size: 12px;
+      padding: 6px 10px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--muted);
+      background: #fff;
+    }
+
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 42px 24px 80px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 32px;
+      align-items: start;
+      margin-bottom: 30px;
+    }
+
+    .tagline {
+      display: inline-flex;
+      margin-bottom: 18px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: var(--soft);
+      color: var(--accent-dark);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .hero h1 {
+      font-size: clamp(34px, 5vw, 58px);
+      line-height: 1.05;
+      margin: 0 0 18px;
+      letter-spacing: -0.04em;
+    }
+
+    .hero p {
+      margin: 0 0 16px;
+      color: var(--muted);
+      font-size: 18px;
+      max-width: 760px;
+    }
+
+    .hero-card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card h3 { margin: 0 0 12px; }
+    .hero-card ul { margin: 0; padding-left: 20px; color: var(--muted); }
+    .hero-card li { margin-bottom: 8px; }
+
+    .app-shell {
+      display: grid;
+      grid-template-columns: 390px 1fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .form-panel { padding: 24px; position: sticky; top: 82px; }
+    .output-panel { padding: 0; overflow: hidden; }
+
+    label {
+      display: block;
+      font-size: 13px;
+      font-weight: 700;
+      margin: 16px 0 7px;
+      color: #394150;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      border: 1px solid #d7d1c8;
+      border-radius: 12px;
+      padding: 12px 13px;
+      background: #fff;
+      color: var(--text);
+      font-size: 14px;
+      outline: none;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(139, 94, 52, 0.12);
+    }
+
+    textarea { min-height: 150px; resize: vertical; }
+
+    .small-note {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 8px;
+    }
+
+    button {
+      border: none;
+      cursor: pointer;
+      border-radius: 13px;
+      font-weight: 750;
+      font-size: 14px;
+      transition: transform 0.1s ease, opacity 0.2s ease;
+    }
+
+    button:active { transform: translateY(1px); }
+
+    .primary-btn {
+      width: 100%;
+      margin-top: 22px;
+      padding: 14px 16px;
+      color: white;
+      background: var(--accent-dark);
+    }
+
+    .secondary-actions {
+      display: flex;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .secondary-btn {
+      flex: 1;
+      padding: 11px 12px;
+      color: var(--accent-dark);
+      background: var(--soft);
+      border: 1px solid var(--line);
+    }
+
+    .output-header {
+      padding: 22px 24px;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+      background: #fffdf9;
+    }
+
+    .output-header h2 { margin: 0; font-size: 20px; }
+    .status {
+      font-size: 12px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: var(--soft);
+      color: var(--accent-dark);
+      white-space: nowrap;
+    }
+
+    .memo { padding: 26px; }
+
+    .empty-state {
+      padding: 46px 26px;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    .score-hero {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 22px;
+      align-items: center;
+      margin-bottom: 24px;
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: var(--soft-2);
+    }
+
+    .score-circle {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 12px solid var(--accent);
+      display: grid;
+      place-items: center;
+      background: white;
+      margin: 0 auto;
+    }
+
+    .score-circle strong { font-size: 38px; line-height: 1; }
+    .score-circle span { font-size: 13px; color: var(--muted); display: block; text-align: center; }
+
+    .score-summary h3 { margin: 0 0 8px; font-size: 24px; }
+    .score-summary p { margin: 0 0 10px; color: var(--muted); }
+
+    .chips { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
+    .chip {
+      display: inline-flex;
+      padding: 6px 10px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: #fff;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 18px 0;
+    }
+
+    .mini-card {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 16px;
+      background: #fff;
+    }
+
+    .mini-card h4 { margin: 0 0 8px; font-size: 14px; color: var(--accent-dark); }
+    .mini-card p { margin: 0; color: var(--muted); font-size: 14px; }
+
+    .section { margin-top: 28px; }
+    .section h3 {
+      margin: 0 0 12px;
+      font-size: 18px;
+      letter-spacing: -0.01em;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      overflow: hidden;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: #fff;
+      font-size: 13px;
+    }
+
+    th, td {
+      padding: 12px 10px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background: var(--soft);
+      color: var(--accent-dark);
+      font-size: 12px;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+
+    tr:last-child td { border-bottom: none; }
+
+    .bar-wrap {
+      height: 8px;
+      background: #eee7dc;
+      border-radius: 999px;
+      overflow: hidden;
+      margin-top: 6px;
+      min-width: 90px;
+    }
+
+    .bar { height: 100%; background: var(--accent); border-radius: 999px; }
+    .score-cell strong { display: block; }
+
+    .risk-list, .question-list { margin: 0; padding-left: 20px; color: var(--muted); }
+    .risk-list li, .question-list li { margin-bottom: 8px; }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 9px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 750;
+    }
+
+    .pill.good { background: rgba(35,112,74,.10); color: var(--good); }
+    .pill.warn { background: rgba(154,107,0,.12); color: var(--warn); }
+    .pill.danger { background: rgba(159,45,45,.10); color: var(--danger); }
+    .pill.blue { background: rgba(47,95,143,.10); color: var(--blue); }
+
+    .footer-note {
+      margin-top: 26px;
+      padding: 14px 16px;
+      background: #fff9ef;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 960px) {
+      .hero, .app-shell, .score-hero, .grid-2 { grid-template-columns: 1fr; }
+      .form-panel { position: static; }
+      .score-circle { width: 130px; height: 130px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav">
+      <div class="brand">OYON ADVISORY</div>
+      <div class="demo-badge">DeepTech DD Copilot · Scorecard Demo</div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div>
+        <div class="tagline">AI-assisted technical screening for deep-tech investors</div>
+        <h1>Oyon DeepTech Readiness Scorecard</h1>
+        <p>Upload or paste a startup description and generate a stage-adjusted technical investment readiness view. This demo emphasizes the proprietary scoring logic, not generic memo writing.</p>
+        <p>The scorecard combines universal deep-tech criteria, sector-specific diligence questions, confidence scoring, and missing-evidence detection.</p>
+      </div>
+      <aside class="hero-card">
+        <h3>Scorecard differentiators</h3>
+        <ul>
+          <li>Weighted technical-investment readiness score</li>
+          <li>Stage-adjusted expectations for pre-seed to Series B+</li>
+          <li>Sector-specific criteria for semiconductors, energy, materials, biotech, AI infrastructure, and photonics</li>
+          <li>Separate analysis confidence score to reduce false precision</li>
+          <li>Score + reason + missing evidence + investor question</li>
+        </ul>
+      </aside>
+    </section>
+
+    <section class="app-shell">
+      <div class="panel form-panel">
+        <h2 style="margin:0 0 4px;">Run demo</h2>
+        <div class="small-note">This is a front-end-only demo. It does not call any LLM API.</div>
+
+        <label for="startupName">Startup / Project name</label>
+        <input id="startupName" value="NovaCarbon Materials" />
+
+        <label for="sector">Sector</label>
+        <select id="sector">
+          <option value="semiconductor">Semiconductor / Advanced Electronics</option>
+          <option value="energy" selected>Energy / Hydrogen / Carbon</option>
+          <option value="materials">Advanced Materials</option>
+          <option value="biotech">Industrial Biotech</option>
+          <option value="datacenter">AI Data Center Infrastructure</option>
+          <option value="photonics">Photonics / Sensors</option>
+        </select>
+
+        <label for="stage">Stage</label>
+        <select id="stage">
+          <option value="preseed">Pre-seed</option>
+          <option value="seed" selected>Seed</option>
+          <option value="seriesa">Series A</option>
+          <option value="seriesb">Series B+</option>
+        </select>
+
+        <label for="evidenceLevel">Available evidence</label>
+        <select id="evidenceLevel">
+          <option value="thin">Public website only</option>
+          <option value="partial" selected>Deck + selected data</option>
+          <option value="strong">Deck + patents + test data + customer evidence</option>
+        </select>
+
+        <label for="notes">Company notes / claim summary</label>
+        <textarea id="notes">Develops a catalytic methane pyrolysis process to produce low-carbon hydrogen and solid carbon products. Claims lower CO2 intensity than steam methane reforming and lower electricity demand than electrolysis. Current evidence includes lab reactor data, early catalyst lifetime results, and preliminary LOIs from industrial hydrogen users.</textarea>
+
+        <button class="primary-btn" onclick="generateReport()">Generate Scorecard Demo</button>
+        <div class="secondary-actions">
+          <button class="secondary-btn" onclick="loadSample('semiconductor')">Semicon sample</button>
+          <button class="secondary-btn" onclick="loadSample('energy')">Energy sample</button>
+        </div>
+        <div class="secondary-actions">
+          <button class="secondary-btn" onclick="loadSample('datacenter')">Cooling sample</button>
+          <button class="secondary-btn" onclick="copyReport()">Copy report</button>
+        </div>
+        <div class="small-note">Pilot disclaimer: use public or non-confidential information only.</div>
+      </div>
+
+      <div class="panel output-panel">
+        <div class="output-header">
+          <h2>Technical Investment Readiness</h2>
+          <span class="status" id="status">Ready</span>
+        </div>
+        <div class="memo" id="memo">
+          <div class="empty-state">
+            Enter a startup description and click “Generate Scorecard Demo.”
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const weights = [
+      ["Technical Validity", 15],
+      ["Evidence Quality", 15],
+      ["Performance Advantage", 15],
+      ["Scale-up Feasibility", 15],
+      ["Cost Competitiveness", 10],
+      ["Market Pull", 10],
+      ["Defensibility", 10],
+      ["Capital Efficiency", 10]
+    ];
+
+    const sectorData = {
+      semiconductor: {
+        label: "Semiconductor / Advanced Electronics",
+        benchmarks: ["wafer size", "defect density", "yield", "thermal performance", "fab compatibility", "qualification cycle"],
+        questions: [
+          "What is the largest wafer or substrate area demonstrated under repeatable process conditions?",
+          "What defect-density, yield, and reliability data exist versus incumbent materials or devices?",
+          "Which steps are compatible with existing fab tools, and which require new capex or qualification?"
+        ],
+        missing: ["repeatable yield data", "device-level reliability", "cost per wafer/device", "customer qualification roadmap"]
+      },
+      energy: {
+        label: "Energy / Hydrogen / Carbon",
+        benchmarks: ["conversion/selectivity", "catalyst lifetime", "energy intensity", "capex/opex", "integration conditions", "offtake validation"],
+        questions: [
+          "What catalyst lifetime has been demonstrated under continuous operation and realistic impurity exposure?",
+          "What are the full-system energy intensity and carbon intensity assumptions, not only reactor-level data?",
+          "Who will buy the hydrogen or carbon product, and at what specification and price?"
+        ],
+        missing: ["continuous pilot data", "full-system energy balance", "carbon product specification", "offtake economics"]
+      },
+      materials: {
+        label: "Advanced Materials",
+        benchmarks: ["property advantage", "batch consistency", "process window", "input availability", "cost curve", "customer qualification"],
+        questions: [
+          "Which material property creates a must-have advantage rather than a nice-to-have improvement?",
+          "Has the process shown batch-to-batch reproducibility and tolerance to raw material variation?",
+          "What incumbent material does this replace, and what switching cost must the customer accept?"
+        ],
+        missing: ["commercially relevant benchmark data", "batch reproducibility", "customer testing protocol", "raw material sensitivity"]
+      },
+      biotech: {
+        label: "Industrial Biotech",
+        benchmarks: ["titer/rate/yield", "strain stability", "feedstock flexibility", "downstream purification", "fermentation scale", "unit economics"],
+        questions: [
+          "What titer, rate, and yield have been demonstrated at increasing fermentation scales?",
+          "How stable is the strain/process over repeated runs and realistic contamination conditions?",
+          "Does downstream purification destroy the cost advantage?"
+        ],
+        missing: ["scale-linked TRY data", "strain stability", "downstream cost", "feedstock economics"]
+      },
+      datacenter: {
+        label: "AI Data Center Infrastructure",
+        benchmarks: ["heat flux", "PUE impact", "reliability", "leak/safety risk", "retrofit compatibility", "maintenance burden"],
+        questions: [
+          "What heat flux and rack power density have been validated under realistic operating conditions?",
+          "What is the measured PUE or energy-saving impact versus incumbent cooling solutions?",
+          "How does the product handle reliability, leak detection, maintenance, and retrofitting?"
+        ],
+        missing: ["field deployment data", "PUE comparison", "reliability history", "retrofit economics"]
+      },
+      photonics: {
+        label: "Photonics / Sensors",
+        benchmarks: ["insertion loss", "signal-to-noise", "temperature stability", "packaging", "manufacturing yield", "system integration"],
+        questions: [
+          "What device-level metrics have been demonstrated after packaging and environmental stress testing?",
+          "What is the integration path into existing optical/electronic systems?",
+          "What yield and test-cost assumptions are used for manufacturing?"
+        ],
+        missing: ["packaged-device data", "environmental reliability", "manufacturing yield", "system-level validation"]
+      }
+    };
+
+    const stageExpectations = {
+      preseed: { label: "Pre-seed", note: "Expected evidence: credible mechanism, early proof, founder insight, and a clear experiment plan." },
+      seed: { label: "Seed", note: "Expected evidence: repeatable lab data, credible benchmark, early customer discovery, and a scale-up hypothesis." },
+      seriesa: { label: "Series A", note: "Expected evidence: pilot validation, customer LOIs or trials, cost roadmap, and measurable technical milestones." },
+      seriesb: { label: "Series B+", note: "Expected evidence: manufacturing repeatability, revenue or paid pilots, qualification progress, and robust unit economics." }
+    };
+
+    function scorePreset(sector, stage, evidence) {
+      let base = {
+        "Technical Validity": 4,
+        "Evidence Quality": 3,
+        "Performance Advantage": 4,
+        "Scale-up Feasibility": 2,
+        "Cost Competitiveness": 3,
+        "Market Pull": 3,
+        "Defensibility": 3,
+        "Capital Efficiency": 3
+      };
+
+      if (sector === "semiconductor") {
+        base["Scale-up Feasibility"] = 2;
+        base["Capital Efficiency"] = 2;
+        base["Defensibility"] = 4;
+      }
+      if (sector === "datacenter") {
+        base["Market Pull"] = 4;
+        base["Scale-up Feasibility"] = 3;
+        base["Capital Efficiency"] = 4;
+      }
+      if (sector === "materials") {
+        base["Performance Advantage"] = 3;
+        base["Cost Competitiveness"] = 2;
+      }
+      if (sector === "biotech") {
+        base["Evidence Quality"] = 2;
+        base["Scale-up Feasibility"] = 2;
+      }
+
+      if (evidence === "thin") {
+        base["Evidence Quality"] -= 1;
+        base["Market Pull"] -= 1;
+      }
+      if (evidence === "strong") {
+        base["Evidence Quality"] += 1;
+        base["Market Pull"] += 1;
+        base["Scale-up Feasibility"] += 1;
+      }
+      if (stage === "seriesa") {
+        base["Evidence Quality"] -= evidence === "strong" ? 0 : 1;
+        base["Scale-up Feasibility"] -= evidence === "strong" ? 0 : 1;
+      }
+      if (stage === "seriesb") {
+        base["Evidence Quality"] -= evidence === "strong" ? 0 : 2;
+        base["Scale-up Feasibility"] -= evidence === "strong" ? 0 : 2;
+        base["Market Pull"] -= evidence === "strong" ? 0 : 1;
+      }
+      Object.keys(base).forEach(k => base[k] = Math.max(1, Math.min(5, base[k])));
+      return base;
+    }
+
+    function weightedScore(scores) {
+      return Math.round(weights.reduce((sum, [name, weight]) => sum + (scores[name] / 5) * weight, 0));
+    }
+
+    function readiness(score) {
+      if (score >= 82) return ["IC-Ready", "good"];
+      if (score >= 65) return ["First-Call Worthy", "blue"];
+      if (score >= 50) return ["Watchlist / Expert Review Needed", "warn"];
+      return ["Pass for Now", "danger"];
+    }
+
+    function confidence(evidence) {
+      if (evidence === "strong") return ["High", "good", 82];
+      if (evidence === "partial") return ["Medium", "blue", 62];
+      return ["Low", "warn", 38];
+    }
+
+    function reasonFor(name, score, sector) {
+      const low = score <= 2;
+      const mid = score === 3;
+      const high = score >= 4;
+      const s = sectorData[sector];
+      const generic = {
+        "Technical Validity": high ? "Core mechanism appears plausible based on the stated claim." : mid ? "Claim is plausible but needs independent technical validation." : "Core mechanism is not yet supported enough for investor reliance.",
+        "Evidence Quality": high ? "Evidence base appears broader than founder narrative alone." : mid ? "Evidence exists but remains incomplete for investment decision-making." : "Available evidence is too thin; analysis is vulnerable to founder-claim bias.",
+        "Performance Advantage": high ? "Potential advantage could be meaningful if benchmarked under comparable conditions." : mid ? "Performance improvement is suggested but not yet clearly superior to incumbents." : "Advantage over incumbent technology is not yet convincing.",
+        "Scale-up Feasibility": high ? "Scale-up path appears credible, though qualification risk remains." : mid ? "Scale-up path is plausible but still has material engineering uncertainty." : "Scale-up is the dominant risk; lab or prototype data may not translate to production.",
+        "Cost Competitiveness": high ? "Cost path appears potentially competitive if assumptions hold." : mid ? "Cost roadmap is directional but requires bottom-up validation." : "Cost advantage is currently unsupported or depends on optimistic assumptions.",
+        "Market Pull": high ? "Customer pain appears strong and near-term adoption is plausible." : mid ? "Market interest is plausible but adoption urgency is not fully proven." : "Customer willingness to switch or pay remains unclear.",
+        "Defensibility": high ? "Defensibility may come from IP, process know-how, and accumulated data." : mid ? "Defensibility exists but may not be enough without execution speed or customer lock-in." : "Defensibility appears weak beyond general technical capability.",
+        "Capital Efficiency": high ? "Capital needs appear manageable relative to next value inflection." : mid ? "Capital requirement is acceptable but should be tied to milestones." : "Likely capital intensity may exceed what the current stage can justify."
+      };
+      return generic[name] + " Sector lens: focus on " + s.benchmarks.slice(0,3).join(", ") + ".";
+    }
+
+    function missingEvidence(name, sector) {
+      const s = sectorData[sector];
+      const map = {
+        "Technical Validity": "independent technical review and mechanism-level validation",
+        "Evidence Quality": s.missing[0] + ", source documents, and raw test conditions",
+        "Performance Advantage": "side-by-side benchmark against incumbent solutions under identical conditions",
+        "Scale-up Feasibility": s.missing[1] + " and repeatability across larger scale",
+        "Cost Competitiveness": "bottom-up cost model, capex assumptions, and sensitivity to inputs/utilization",
+        "Market Pull": "customer interviews, paid pilots, LOIs, switching-cost analysis, and adoption timeline",
+        "Defensibility": "patent claims, freedom-to-operate view, process know-how, and data moat evidence",
+        "Capital Efficiency": "milestone-based financing plan and capital required before commercial validation"
+      };
+      return map[name];
+    }
+
+    function investorQuestion(name, sector) {
+      const s = sectorData[sector];
+      const map = {
+        "Technical Validity": "What must be true technically for this product to beat the incumbent, and what experiment would falsify that assumption?",
+        "Evidence Quality": "Can the company provide raw data, test protocols, negative results, and third-party validation?",
+        "Performance Advantage": s.questions[0],
+        "Scale-up Feasibility": s.questions[1],
+        "Cost Competitiveness": "Which cost assumption has the largest impact on the business case, and what evidence supports it?",
+        "Market Pull": "Which customer has the strongest pain, and what budget or procurement path would turn interest into adoption?",
+        "Defensibility": "What prevents a larger incumbent or better-funded competitor from replicating this within 12–24 months?",
+        "Capital Efficiency": "What is the next value-inflection milestone, how much capital is required, and what risk is retired?"
+      };
+      return map[name];
+    }
+
+    function renderScoreRows(scores, sector) {
+      return weights.map(([name, weight]) => {
+        const score = scores[name];
+        return `<tr>
+          <td><strong>${name}</strong><div class="small-note">Weight: ${weight}%</div></td>
+          <td class="score-cell"><strong>${score}/5</strong><div class="bar-wrap"><div class="bar" style="width:${score * 20}%"></div></div></td>
+          <td>${reasonFor(name, score, sector)}</td>
+          <td>${missingEvidence(name, sector)}</td>
+          <td>${investorQuestion(name, sector)}</td>
+        </tr>`;
+      }).join("");
+    }
+
+    function generateReport() {
+      const name = document.getElementById("startupName").value || "Unnamed Startup";
+      const sector = document.getElementById("sector").value;
+      const stage = document.getElementById("stage").value;
+      const evidence = document.getElementById("evidenceLevel").value;
+      const notes = document.getElementById("notes").value || "No notes provided.";
+      const s = sectorData[sector];
+      const st = stageExpectations[stage];
+      const scores = scorePreset(sector, stage, evidence);
+      const score = weightedScore(scores);
+      const [readinessLabel, readinessClass] = readiness(score);
+      const [confLabel, confClass, confScore] = confidence(evidence);
+
+      const lowest = Object.entries(scores).sort((a,b) => a[1] - b[1]).slice(0,2).map(x => x[0]);
+      const highest = Object.entries(scores).sort((a,b) => b[1] - a[1]).slice(0,2).map(x => x[0]);
+
+      document.getElementById("status").textContent = "Generated · Demo";
+      document.getElementById("memo").innerHTML = `
+        <div id="reportContent">
+          <div class="score-hero">
+            <div class="score-circle"><div><strong>${score}</strong><span>/ 100</span></div></div>
+            <div class="score-summary">
+              <h3>${name}</h3>
+              <p><strong>Oyon DeepTech Readiness:</strong> <span class="pill ${readinessClass}">${readinessLabel}</span></p>
+              <p><strong>Analysis confidence:</strong> <span class="pill ${confClass}">${confLabel}</span> based on ${document.getElementById("evidenceLevel").selectedOptions[0].text.toLowerCase()}.</p>
+              <div class="chips">
+                <span class="chip">${s.label}</span>
+                <span class="chip">${st.label}</span>
+                <span class="chip">Primary risk: ${lowest[0]}</span>
+                <span class="chip">Strongest signal: ${highest[0]}</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid-2">
+            <div class="mini-card">
+              <h4>Core investment question</h4>
+              <p>Can ${name} prove that its technical advantage survives commercially relevant scale, cost, reliability, and customer adoption constraints?</p>
+            </div>
+            <div class="mini-card">
+              <h4>Stage-adjusted expectation</h4>
+              <p>${st.note}</p>
+            </div>
+          </div>
+
+          <div class="section">
+            <h3>Weighted scorecard</h3>
+            <table>
+              <thead><tr><th>Dimension</th><th>Score</th><th>Reason</th><th>Missing evidence</th><th>Investor question</th></tr></thead>
+              <tbody>${renderScoreRows(scores, sector)}</tbody>
+            </table>
+          </div>
+
+          <div class="section grid-2">
+            <div class="mini-card">
+              <h4>Primary red flags</h4>
+              <ul class="risk-list">
+                <li>${lowest[0]} is the most important diligence gap before serious partner discussion.</li>
+                <li>${lowest[1]} may create hidden risk if founder claims are not benchmarked against incumbent alternatives.</li>
+                <li>Confidence is ${confLabel.toLowerCase()}, so the score should be treated as a screening view rather than an investment decision.</li>
+              </ul>
+            </div>
+            <div class="mini-card">
+              <h4>Sector-specific benchmark lens</h4>
+              <ul class="risk-list">
+                ${s.benchmarks.map(b => `<li>${b}</li>`).join("")}
+              </ul>
+            </div>
+          </div>
+
+          <div class="section">
+            <h3>Founder first-call questions</h3>
+            <ol class="question-list">
+              ${s.questions.map(q => `<li>${q}</li>`).join("")}
+              <li>What evidence would you show a skeptical technical expert to prove this is more than a lab-scale result?</li>
+              <li>What is the next milestone that materially reduces technical or commercial risk?</li>
+            </ol>
+          </div>
+
+          <div class="section">
+            <h3>Data room request list</h3>
+            <ul class="risk-list">
+              <li>Raw experimental or validation data with test conditions and failed/negative results.</li>
+              <li>Benchmark comparison versus incumbent technology under comparable assumptions.</li>
+              <li>Bottom-up cost model and sensitivity analysis.</li>
+              <li>IP summary, patent filings, ownership status, and freedom-to-operate view.</li>
+              <li>Customer discovery notes, LOIs, pilots, or qualification roadmap.</li>
+            </ul>
+          </div>
+
+          <div class="section">
+            <h3>Input summary</h3>
+            <p style="color:var(--muted);">${escapeHtml(notes)}</p>
+          </div>
+
+          <div class="footer-note">
+            Demo note: This page simulates the scoring logic for pitching and product validation. A production version would connect this framework to an LLM, source retrieval, citations, and secure report storage.
+          </div>
+        </div>`;
+    }
+
+    function escapeHtml(text) {
+      const div = document.createElement("div");
+      div.textContent = text;
+      return div.innerHTML;
+    }
+
+    function copyReport() {
+      const content = document.getElementById("reportContent");
+      if (!content) return alert("Generate a report first.");
+      navigator.clipboard.writeText(content.innerText).then(() => alert("Report copied."));
+    }
+
+    function loadSample(type) {
+      if (type === "semiconductor") {
+        document.getElementById("startupName").value = "DiamondPower Devices";
+        document.getElementById("sector").value = "semiconductor";
+        document.getElementById("stage").value = "seed";
+        document.getElementById("evidenceLevel").value = "partial";
+        document.getElementById("notes").value = "Develops diamond-based power semiconductor substrates for high-voltage and high-temperature applications. Claims superior thermal conductivity and breakdown voltage versus SiC/GaN. Evidence includes university-originated material data, small-area samples, and early conversations with power electronics customers.";
+      }
+      if (type === "energy") {
+        document.getElementById("startupName").value = "NovaCarbon Materials";
+        document.getElementById("sector").value = "energy";
+        document.getElementById("stage").value = "seed";
+        document.getElementById("evidenceLevel").value = "partial";
+        document.getElementById("notes").value = "Develops a catalytic methane pyrolysis process to produce low-carbon hydrogen and solid carbon products. Claims lower CO2 intensity than steam methane reforming and lower electricity demand than electrolysis. Current evidence includes lab reactor data, early catalyst lifetime results, and preliminary LOIs from industrial hydrogen users.";
+      }
+      if (type === "datacenter") {
+        document.getElementById("startupName").value = "FluxCool Systems";
+        document.getElementById("sector").value = "datacenter";
+        document.getElementById("stage").value = "seriesa";
+        document.getElementById("evidenceLevel").value = "strong";
+        document.getElementById("notes").value = "Builds two-phase liquid cooling modules for AI data center racks above 100 kW. Claims lower PUE, retrofit compatibility, and reduced maintenance burden compared with immersion cooling. Evidence includes pilot deployment data, reliability testing, and paid trials with two colocation operators.";
+      }
+      generateReport();
+    }
+
+    generateReport();
+  </script>
+</body>
+</html>
