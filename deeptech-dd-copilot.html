@@ -39,40 +39,42 @@
     .site-header {
       max-width: var(--max);
       margin: 0 auto;
-      padding: 34px 26px 22px;
+      padding: 38px 26px 26px;
     }
 
-    .brand {
-      display: inline-block;
+    .site-title {
       margin: 0 0 18px;
-      color: var(--text);
-      font-size: 30px;
-      line-height: 1.1;
+      font-size: clamp(34px, 4vw, 48px);
+      line-height: 1.05;
       font-weight: normal;
+      letter-spacing: -0.035em;
+    }
+
+    .site-title a {
+      color: var(--text);
       text-decoration: none;
-      letter-spacing: -0.02em;
     }
 
     .nav {
       display: flex;
       flex-wrap: wrap;
       gap: 18px;
-      padding-top: 2px;
+      margin: 0;
+      padding: 0;
       color: var(--muted);
       font-family: Arial, Helvetica, sans-serif;
       font-size: 14px;
+      line-height: 1.4;
     }
 
     .nav a {
+      color: var(--muted);
       text-decoration: none;
-      border-bottom: 1px solid transparent;
-      padding-bottom: 2px;
     }
 
     .nav a:hover,
     .nav a.active {
       color: var(--text);
-      border-bottom-color: var(--text);
     }
 
     main {
@@ -460,7 +462,7 @@
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="index.html">Oyon Advisory</a>
+    <h1 class="site-title"><a href="index.html">Oyon Advisory</a></h1>
     <nav class="nav" aria-label="Main navigation">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
