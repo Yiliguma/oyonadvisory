@@ -26,6 +26,19 @@ a:hover {
   margin-bottom: 34px;
 }
 
+.site-footer {
+  max-width: 42rem;
+  margin-top: 48px;
+  padding-top: 18px;
+  border-top: 1px solid #cfc7b8;
+  color: #5e5b55;
+  font-size: 0.82rem;
+}
+
+.site-footer p {
+  margin: 0;
+}
+
 .site-header h1 {
   margin: 0 0 10px;
   color: #8f4e41;
@@ -128,6 +141,25 @@ figcaption,
 
 .hero-copy h2 {
   max-width: 30rem;
+}
+
+.simple-hero {
+  max-width: 38rem;
+  margin-bottom: 50px;
+}
+
+.work-section {
+  max-width: 38rem;
+  margin-top: 40px;
+}
+
+.work-list {
+  margin: 0 0 20px;
+  padding-left: 22px;
+}
+
+.work-list li {
+  margin-bottom: 10px;
 }
 
 .essay-page h2 {
