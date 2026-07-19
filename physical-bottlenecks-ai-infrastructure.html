@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Physical Bottlenecks of AI Infrastructure | Oyon Advisory</title>
+  <meta
+    name="description"
+    content="Why the next phase of AI infrastructure depends on power delivery, optical interconnects, and thermal management—and how investors can identify durable control points."
+  >
+  <link rel="canonical" href="https://www.oyonadvisory.com/physical-bottlenecks-ai-infrastructure.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Oyon Advisory">
+  <meta property="og:title" content="The Physical Bottlenecks of AI Infrastructure">
+  <meta
+    property="og:description"
+    content="AI infrastructure is constrained by three coupled physical flows: power in, data through, and heat out."
+  >
+  <meta property="og:url" content="https://www.oyonadvisory.com/physical-bottlenecks-ai-infrastructure.html">
+  <meta property="og:image" content="https://www.oyonadvisory.com/Oyon_Physical_Bottlenecks_AI_Infrastructure_Illustration.png">
+  <meta property="article:published_time" content="2026-07-19">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Physical Bottlenecks of AI Infrastructure">
+  <meta
+    name="twitter:description"
+    content="Power in. Data through. Heat out. The physical constraints that will shape the next phase of AI infrastructure."
+  >
+  <meta name="twitter:image" content="https://www.oyonadvisory.com/Oyon_Physical_Bottlenecks_AI_Infrastructure_Illustration.png">
+  <link rel="stylesheet" href="styles.css?v=20260717">
+  <style>
+    .essay-page {
+      max-width: 46rem;
+    }
+
+    .essay-kicker {
+      margin: 0 0 0.45rem;
+      color: #8f4e41;
+      font-size: 0.76rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .essay-page h2 {
+      max-width: 42rem;
+      margin-bottom: 0.65rem;
+    }
+
+    .essay-deck {
+      max-width: 42rem;
+      margin: 0 0 1.25rem;
+      color: #45423d;
+      font-size: 1.08rem;
+      line-height: 1.55;
+    }
+
+    .article-tools {
+      display: flex;
+      gap: 0.75rem 1.1rem;
+      flex-wrap: wrap;
+      align-items: center;
+      margin: 1.1rem 0 1.7rem;
+      padding: 0.8rem 0;
+      border-top: 1px solid #cfc7b8;
+      border-bottom: 1px solid #cfc7b8;
+      font-size: 0.9rem;
+    }
+
+    .hero-figure {
+      margin: 1.9rem 0 2rem;
+    }
+
+    .hero-figure img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border: 1px solid #cfc7b8;
+    }
+
+    .hero-figure figcaption {
+      margin-top: 0.55rem;
+    }
+
+    .opening-line {
+      font-size: 1.08rem;
+      line-height: 1.65;
+    }
+
+    .thesis-box {
+      margin: 2rem 0;
+      padding: 1.1rem 1.25rem;
+      border-left: 4px solid #8f4e41;
+      background: #eee7d8;
+    }
+
+    .thesis-box p:last-child {
+      margin-bottom: 0;
+    }
+
+    .flow-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.8rem;
+      margin: 1.6rem 0 2.1rem;
+    }
+
+    .flow-card {
+      padding: 1rem;
+      border: 1px solid #cfc7b8;
+      background: rgba(255, 255, 255, 0.22);
+    }
+
+    .flow-card.power { border-top: 4px solid #b56a18; }
+    .flow-card.data { border-top: 4px solid #385ba8; }
+    .flow-card.heat { border-top: 4px solid #2f7b78; }
+
+    .flow-card h3 {
+      margin: 0 0 0.45rem;
+      font-size: 0.95rem;
+    }
+
+    .flow-card p {
+      margin: 0;
+      color: #45423d;
+      font-size: 0.9rem;
+    }
+
+    .signal-list {
+      margin: 0.6rem 0 1.6rem;
+      padding-left: 1.4rem;
+    }
+
+    .signal-list li {
+      margin-bottom: 0.7rem;
+    }
+
+    .question-list {
+      counter-reset: question;
+      margin: 1.2rem 0 2rem;
+      padding: 0;
+      list-style: none;
+    }
+
+    .question-list li {
+      position: relative;
+      margin: 0;
+      padding: 0.85rem 0 0.85rem 2.6rem;
+      border-top: 1px solid #cfc7b8;
+    }
+
+    .question-list li:last-child {
+      border-bottom: 1px solid #cfc7b8;
+    }
+
+    .question-list li::before {
+      counter-increment: question;
+      content: counter(question, decimal-leading-zero);
+      position: absolute;
+      top: 0.9rem;
+      left: 0;
+      color: #8f4e41;
+      font-size: 0.8rem;
+      letter-spacing: 0.06em;
+    }
+
+    .article-cta {
+      margin: 2.4rem 0;
+      padding: 1.2rem 1.3rem;
+      border: 1px solid #cfc7b8;
+      background: #f0eadc;
+    }
+
+    .article-cta h3 {
+      margin: 0 0 0.5rem;
+      color: #8f4e41;
+    }
+
+    .article-cta p:last-child {
+      margin-bottom: 0;
+    }
+
+    .references-list {
+      word-break: break-word;
+    }
+
+    @media (max-width: 700px) {
+      .flow-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .article-tools {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "The Physical Bottlenecks of AI Infrastructure",
+    "description": "Why the next phase of AI infrastructure depends on power delivery, optical interconnects, and thermal management.",
+    "datePublished": "2026-07-19",
+    "dateModified": "2026-07-19",
+    "author": {
+      "@type": "Person",
+      "name": "Yili"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Oyon Advisory",
+      "url": "https://www.oyonadvisory.com/"
+    },
+    "image": "https://www.oyonadvisory.com/Oyon_Physical_Bottlenecks_AI_Infrastructure_Illustration.png",
+    "mainEntityOfPage": "https://www.oyonadvisory.com/physical-bottlenecks-ai-infrastructure.html"
+  }
+  </script>
+</head>
+<body>
+  <div class="page">
+    <header class="site-header">
+      <h1><a href="index.html">Oyon Advisory</a></h1>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="essays.html" aria-current="page">Research &amp; Perspectives</a>
+        <a href="deeptech-dd-copilot.html">DD Scorecard</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <article class="content-block essay-page">
+        <p class="essay-back"><a href="essays.html">&larr; Back to Research &amp; Perspectives</a></p>
+        <p class="essay-kicker">AI infrastructure &middot; Investment thesis</p>
+        <h2>The Physical Bottlenecks of AI Infrastructure</h2>
+        <p class="essay-deck">
+          Power in. Data through. Heat out. The next phase of AI will be shaped not only by better chips, but by the physical systems that allow those chips to work at scale.
+        </p>
+        <p class="essay-meta">July 19, 2026 &middot; 8 minute read</p>
+        <p class="essay-byline">Content: Yili &middot; Revision support: ChatGPT</p>
+
+        <div class="article-tools" aria-label="Article actions">
+          <a
+            href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.oyonadvisory.com%2Fphysical-bottlenecks-ai-infrastructure.html"
+            target="_blank"
+            rel="noopener noreferrer"
+          >Share on LinkedIn</a>
+          <a href="Oyon_AI_Physical_Bottlenecks_Carousel.pdf" download>Download the 8-slide carousel (PDF)</a>
+        </div>
+
+        <figure class="hero-figure">
+          <img
+            src="Oyon_Physical_Bottlenecks_AI_Infrastructure_Illustration.png"
+            alt="Illustration of an AI accelerator surrounded by power delivery, optical interconnect, and thermal-management systems"
+            width="1536"
+            height="1024"
+          >
+          <figcaption>AI compute sits at the center of three coupled physical flows: electricity, information, and heat.</figcaption>
+        </figure>
+
+        <p class="opening-line">
+          AI-linked stocks have just gone through another sharp market reset. When expectations move faster than deployment, valuation corrections are inevitable. But the selloff raises a more useful question than whether the AI trade is “over”: <em>as capital becomes more selective, which parts of the infrastructure remain physically unavoidable?</em>
+        </p>
+
+        <p>
+          Stock markets price expectations. Infrastructure obeys physics. Every AI data center must bring enormous amounts of power to densely packed processors, move data between them at ever-higher bandwidth, and remove the heat that computation creates. Model demand can fluctuate; these three requirements do not disappear.
+        </p>
+
+        <div class="thesis-box">
+          <p><strong>The thesis:</strong> the durable value in AI infrastructure will increasingly accrue to companies that relieve one of three coupled constraints—power delivery, optical connectivity, or thermal management—at a point where qualification, integration, and switching costs create defensible control.</p>
+        </div>
+
+        <h3>One system, three physical flows</h3>
+
+        <p>
+          It is tempting to analyze AI hardware as a contest among accelerators. In practice, the accelerator is only one part of a tightly coupled system. Useful compute depends on three flows working together:
+        </p>
+
+        <div class="flow-grid" aria-label="Three physical flows in AI infrastructure">
+          <section class="flow-card power">
+            <h3>1. Power in</h3>
+            <p>Convert and deliver electricity efficiently, from the grid and rack down to the package and die.</p>
+          </section>
+          <section class="flow-card data">
+            <h3>2. Data through</h3>
+            <p>Move information across memory, packages, racks, and clusters without an unsustainable energy penalty.</p>
+          </section>
+          <section class="flow-card heat">
+            <h3>3. Heat out</h3>
+            <p>Move heat from silicon through interfaces and cooling loops to the outside environment.</p>
+          </section>
+        </div>
+
+        <p>
+          Improving only one flow often intensifies pressure on the other two. More compute increases both power density and heat flux. Faster electrical links consume more energy and generate more heat. Advanced packaging shortens signal paths but creates new thermal and mechanical challenges. The relevant unit of analysis is therefore the whole system—not a component in isolation.
+        </p>
+
+        <h3>1. Power delivery becomes system architecture</h3>
+
+        <p>
+          The AI power problem is not simply that data centers need more electricity. Power must be converted several times and delivered to processors operating at low voltage and extraordinary current. At each stage, conversion losses become heat; resistive losses rise rapidly with current; and transient workloads demand fast, stable response.
+        </p>
+
+        <p>
+          This shifts value toward higher-voltage distribution, more efficient conversion, wide-bandgap power devices, integrated power stages, better magnetics, and architectures that place regulation closer to the load. The best solution is not automatically the device with the highest laboratory efficiency. It is the one that improves rack-level power density, reliability, serviceability, and total cost while surviving a demanding qualification cycle.
+        </p>
+
+        <p><strong>Watch for:</strong> fewer conversion steps, higher distribution voltage, vertical power delivery, advanced GaN and SiC devices, and power products designed jointly with compute and cooling architectures.</p>
+
+        <h3>2. Optics moves closer to compute</h3>
+
+        <p>
+          AI clusters are giant communication machines. Their performance depends not only on the speed of each accelerator, but on how efficiently thousands of accelerators exchange data. As link speed and distance increase, conventional electrical interconnects require more equalization, retiming, and power. Eventually, the energy cost and signal-integrity burden become architectural constraints.
+        </p>
+
+        <p>
+          That is why optics is moving progressively closer to the switch and compute package—from pluggable modules toward co-packaged optics and, over time, optical I/O. The opportunity spans lasers, silicon photonics, modulators, packaging, fiber attach, test, thermal control, and orchestration software. Yet proximity creates new problems: a failed optical engine cannot be allowed to strand a valuable compute package, and lasers, electronics, and advanced packaging have very different reliability profiles.
+        </p>
+
+        <p><strong>Watch for:</strong> credible manufacturing yield, field-replaceable architectures, laser strategy, automated optical packaging, interoperability, and measured energy per transmitted bit at the system boundary.</p>
+
+        <h3>3. The thermal bottleneck is concentrated at interfaces</h3>
+
+        <p>
+          Cooling discussions often focus on liquid loops, cold plates, or immersion tanks. Those systems matter, but heat must first cross a sequence of microscopic boundaries: transistor to die, die to thermal interface material, interface to heat spreader or cold plate, and then into the coolant. A weakness at any interface can limit the entire cooling chain.
+        </p>
+
+        <p>
+          Advanced packages make this harder. Chiplets, stacked memory, interposers, and three-dimensional integration create non-uniform hot spots and materials with different coefficients of thermal expansion. Those mismatches can cause warpage, fatigue, cracking, or delamination over repeated thermal cycles. The winning thermal solution must therefore manage heat and mechanical stress at the same time, while remaining manufacturable and serviceable.
+        </p>
+
+        <p><strong>Watch for:</strong> interface resistance rather than bulk conductivity alone, pump-out and dry-out under cycling, package-level mechanical reliability, metrology, and compatibility with high-volume assembly.</p>
+
+        <h3>The bottlenecks are coupled</h3>
+
+        <p>
+          These transitions cannot be assessed independently. Moving optics closer to compute may reduce link energy, but it adds heat-sensitive photonics beside hot electronics. Delivering power from the back side of a die can free routing resources, but it changes fabrication, packaging, and thermal paths. Denser three-dimensional integration shortens interconnects, but concentrates heat and amplifies stress from material mismatch.
+        </p>
+
+        <p>
+          This coupling is precisely where durable businesses can emerge. A component that looks interchangeable on a specification sheet may become highly defensible once it is co-designed into a package, validated across thousands of thermal cycles, qualified by a hyperscaler, and supported by proprietary process control.
+        </p>
+
+        <h3>Where new companies can create value</h3>
+
+        <p>
+          The most attractive opportunities may not be the largest categories in a top-down market forecast. They are often narrow control points where a small improvement unlocks a much more valuable system:
+        </p>
+
+        <ul class="signal-list">
+          <li><strong>Critical materials:</strong> thermal interfaces, substrates, dielectrics, bonding materials, and optical materials that enable new architectures.</li>
+          <li><strong>Specialized components:</strong> power modules, optical engines, connectors, pumps, cold plates, sensors, and embedded control.</li>
+          <li><strong>Manufacturing and test:</strong> bonding, alignment, inspection, reliability characterization, and yield-learning tools.</li>
+          <li><strong>System intelligence:</strong> software and controls that jointly optimize workload placement, power delivery, optical fabric, and cooling.</li>
+        </ul>
+
+        <p>
+          A startup does not need to own the entire data-center stack. It needs to own an indispensable performance or manufacturing constraint—and prove that the value created for the system is much larger than the cost of its product.
+        </p>
+
+        <h3>Five questions for an investible bottleneck</h3>
+
+        <ol class="question-list">
+          <li><strong>Is the constraint unavoidable?</strong> Does scaling compute make the problem more severe, or can the system route around it?</li>
+          <li><strong>Is the improvement material at system level?</strong> A component metric matters only if it changes power density, bandwidth, uptime, yield, or total cost.</li>
+          <li><strong>Where is the control point?</strong> Look for scarce process know-how, qualification data, intellectual property, supply assurance, or deep integration into customer designs.</li>
+          <li><strong>Can it be manufactured reliably?</strong> Yield, repeatability, test time, repairability, and supply-chain readiness often matter more than a record laboratory result.</li>
+          <li><strong>Who captures the value?</strong> Confirm that the supplier can retain economic value rather than giving all of the benefit to a dominant platform customer.</li>
+        </ol>
+
+        <h3>The investment implication</h3>
+
+        <p>
+          A market correction can be healthy for deep-tech investing because it separates exposure to a popular narrative from ownership of a necessary capability. The task is not to predict every accelerator winner. It is to identify the enabling technologies that multiple architectures will need, then distinguish genuine control points from components that will be standardized and commoditized.
+        </p>
+
+        <p>
+          Power, optics, and thermal management will not advance in neat, independent markets. They will co-evolve around package and rack architectures. Research and diligence should follow those interfaces: where energy is lost, where data movement becomes uneconomic, where heat or stress accumulates, and where qualification makes substitution difficult.
+        </p>
+
+        <div class="thesis-box">
+          <p><strong>Bottom line:</strong> AI is software expressed through physical infrastructure. As compute density rises, the companies that help electricity arrive efficiently, information move economically, and heat leave reliably may capture some of the most durable value in the stack.</p>
+        </div>
+
+        <aside class="article-cta">
+          <h3>Continue the discussion</h3>
+          <p>Oyon Advisory researches deep-technology transitions, the bottlenecks that govern adoption, and the implications for builders and investors. <a href="contact.html">Get in touch</a> or <a href="Oyon_AI_Physical_Bottlenecks_Carousel.pdf" download>download the visual summary</a>.</p>
+        </aside>
+
+        <section class="references-section" aria-labelledby="sources-heading">
+          <h3 id="sources-heading">Sources and related reading</h3>
+          <ul class="references-list">
+            <li><a href="https://www.asahi.com/ajw/articles/16734764" target="_blank" rel="noopener noreferrer">The Asahi Shimbun: recent market coverage of the AI-stock selloff</a></li>
+            <li><a href="https://www.reuters.com/business/wall-st-futures-fall-chip-selloff-gathers-pace-netflix-tumbles-2026-07-17/" target="_blank" rel="noopener noreferrer">Reuters: global chip and AI-linked equity selloff, July 17, 2026</a></li>
+            <li><a href="the-hidden-materials-bottleneck-in-ai-advanced-thermal-interface-materials.html">Oyon Advisory: The Hidden Materials Bottleneck in AI</a></li>
+            <li><a href="from-silicon-to-wide-bandgap-and-ultra-wide-bandgap-semiconductors.html">Oyon Advisory: From Silicon to Wide-Bandgap and Ultra-Wide-Bandgap Semiconductors</a></li>
+            <li><a href="semiconductor-ai-investment-boom-2026.html">Oyon Advisory: Semiconductor Industry and AI Investment Boom</a></li>
+          </ul>
+        </section>
+      </article>
+    </main>
+
+    <footer class="site-footer">
+      <p>Oyon Advisory is an independent research initiative.</p>
+    </footer>
+  </div>
+</body>
+</html>
