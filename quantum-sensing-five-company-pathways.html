@@ -91,5 +91,6 @@ a:focus-visible,summary:focus-visible{outline:2px solid #24616b;outline-offset:4
 <script>
 (()=>{function revealReference(){const id=location.hash.slice(1);if(!/^ref-\d+$/.test(id))return;const target=document.getElementById(id);if(!target)return;const section=target.closest('details');if(section)section.open=true;requestAnimationFrame(()=>target.scrollIntoView({block:'start'}));}window.addEventListener('hashchange',revealReference);revealReference();})();
 </script>
+  <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "6c779937d2df45658ac6441cfddfb00c"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>
